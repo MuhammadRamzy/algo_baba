@@ -1,6 +1,6 @@
-# DSA Learning App
+# Algo Baba
 
-The DSA Learning App is a comprehensive, interactive Python application designed to help users understand and visualize a variety of data structures and algorithms.
+Algo Baba is a comprehensive, interactive Python application designed to help users understand and visualize a variety of data structures and algorithms.
 
 ## Requirements
 
@@ -70,3 +70,5 @@ tkinter
 matplotlib
 numpy
 ```
+
+### cheen thamak dum dum 
