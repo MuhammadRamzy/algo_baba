@@ -61,7 +61,7 @@ If you would like to contribute to the DSA Learning App, feel free to submit bug
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
+
 
 The `requirements.txt` file contains the list of required Python libraries:
 
