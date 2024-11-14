@@ -70,5 +70,3 @@ tkinter
 matplotlib
 numpy
 ```
-
-This `README.md` file provides an overview of the project, the file structure, installation instructions, and usage guidelines. It also includes information about contributing to the project and the license.
