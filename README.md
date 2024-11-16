@@ -84,4 +84,6 @@ If you have any questions or run into issues, please open an issue in the GitHub
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Ramzy
+
+### cheen thamak dum dum
