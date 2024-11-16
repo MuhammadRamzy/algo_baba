@@ -1,0 +1,73 @@
+{
+  "bubbleSort": {
+    "name": "Bubble Sort",
+    "category": "Sorting",
+    "description": "Bubble Sort is a simple sorting algorithm that works by repeatedly stepping through the list of elements, comparing each pair of adjacent elements, and swapping them if they are in the wrong order. This process is repeated until the list is sorted. It gets its name because smaller elements 'bubble' to the top of the list (or the beginning in ascending order) through successive swaps.",
+    "timeComplexity": "O(n²)",
+    "spaceComplexity": "O(1)"
+  },
+  "quickSort": {
+    "name": "Quick Sort",
+    "category": "Sorting",
+    "description": "Quick Sort is a highly efficient sorting algorithm based on the divide-and-conquer strategy. It selects a 'pivot' element from the array and partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. These sub-arrays are then recursively sorted. The algorithm is known for its fast average-case performance, though its worst-case performance can degrade to O(n²) if the pivot choices are poor.",
+    "timeComplexity": "O(n log n) average, O(n²) worst case",
+    "spaceComplexity": "O(log n)"
+  },
+  "mergeSort": {
+    "name": "Merge Sort",
+    "category": "Sorting",
+    "description": "Merge Sort is a stable, efficient, divide-and-conquer sorting algorithm. It works by splitting an unsorted list into n sublists, each containing one element, as single-element lists are inherently sorted. These sublists are then repeatedly merged to produce sorted sublists until a single sorted list remains. Merge Sort is widely used for its predictable performance and stability.",
+    "timeComplexity": "O(n log n)",
+    "spaceComplexity": "O(n)"
+  },
+  "linearSearch": {
+    "name": "Linear Search",
+    "category": "Searching",
+    "description": "Linear Search is the simplest searching algorithm. It works by iterating through each element of the list sequentially, comparing it with the target element until a match is found or the end of the list is reached. While easy to implement, its performance is suboptimal for large lists due to its O(n) time complexity.",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)"
+  },
+  "binarySearch": {
+    "name": "Binary Search",
+    "category": "Searching",
+    "description": "Binary Search is a highly efficient search algorithm used on sorted arrays. The algorithm works by repeatedly dividing the search interval in half. It compares the target value with the middle element of the array; if they are not equal, it eliminates half of the array from consideration. The process continues until the target is found or the interval is empty.",
+    "timeComplexity": "O(log n)",
+    "spaceComplexity": "O(1)"
+  },
+  "bfs": {
+    "name": "Breadth-First Search",
+    "category": "Graph",
+    "description": "Breadth-First Search (BFS) is a graph traversal algorithm that starts at a specified node (often called the source) and explores all its neighboring nodes at the current depth level before moving to nodes at the next depth level. BFS uses a queue to keep track of nodes to visit and is widely used for finding the shortest path in unweighted graphs.",
+    "timeComplexity": "O(V + E) where V is the number of vertices and E is the number of edges",
+    "spaceComplexity": "O(V)"
+  },
+  "dfs": {
+    "name": "Depth-First Search",
+    "category": "Graph",
+    "description": "Depth-First Search (DFS) is a graph traversal algorithm that explores as far down a branch as possible before backtracking to explore other branches. It uses a stack, either explicitly or through recursion, to keep track of nodes to visit. DFS is often used for topological sorting, detecting cycles, and pathfinding.",
+    "timeComplexity": "O(V + E) where V is the number of vertices and E is the number of edges",
+    "spaceComplexity": "O(V)"
+  },
+  "prims": {
+    "name": "Prim's Algorithm",
+    "category": "Graph",
+    "description": "Prim's algorithm is a greedy algorithm for finding a minimum spanning tree (MST) of a weighted undirected graph. Starting from an arbitrary node, it grows the MST by adding the smallest edge that connects a node in the tree to a node outside the tree. It ensures that the resulting tree includes all vertices with the minimum total edge weight.",
+    "timeComplexity": "O(E log V) with binary heap",
+    "spaceComplexity": "O(V)"
+  },
+  "kruskal": {
+    "name": "Kruskal's Algorithm",
+    "category": "Graph",
+    "description": "Kruskal's algorithm is a greedy algorithm for constructing the minimum spanning tree (MST) of a weighted, undirected graph. It sorts all the edges by weight and adds them to the MST one by one, ensuring no cycles are formed. The algorithm stops when all vertices are connected.",
+    "timeComplexity": "O(E log E) or O(E log V)",
+    "spaceComplexity": "O(V)"
+  },
+  "dijkstra": {
+    "name": "Dijkstra's Algorithm",
+    "category": "Graph",
+    "description": "Dijkstra's algorithm is used to find the shortest path from a source node to all other nodes in a weighted graph. It iteratively picks the vertex with the smallest distance, updates its neighbors' distances, and marks the vertex as visited. It is particularly useful for graphs with non-negative weights.",
+    "timeComplexity": "O((V + E) log V) with binary heap",
+    "spaceComplexity": "O(V)"
+  }
+}
+

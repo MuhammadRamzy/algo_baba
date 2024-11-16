@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlgoBaba: Your DSA Learning Companion 🎓
 
-## Getting Started
+AlgoBaba is an interactive Data Structures and Algorithms (DSA) visualization tool designed to make learning algorithms fun and intuitive. Watch algorithms come to life with step-by-step visualizations!
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Interactive Visualizations**: Watch algorithms execute in real-time
+- **Multiple Algorithm Categories**:
+  - Sorting Algorithms (Bubble Sort, Quick Sort, Merge Sort)
+  - Searching Algorithms (Linear Search, Binary Search)
+  - Graph Algorithms (BFS, DFS)
+- **Customizable Controls**: Adjust array size and animation speed
+- **Detailed Algorithm Information**: Learn about time complexity, space complexity, and algorithm descriptions
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/algobaba.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   cd algobaba
+   npm install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎮 Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Visit the landing page and click "Start Learning"
+2. Select an algorithm category (Sorting, Searching, or Graph)
+3. Choose a specific algorithm
+4. Use the control panel to:
+   - Adjust array size
+   - Control visualization speed
+   - Generate new data
+   - Play/pause/step through the visualization
+5. Click the info icon to learn more about the selected algorithm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧪 Supported Algorithms
 
-## Deploy on Vercel
+### Sorting Algorithms
+- **Bubble Sort**: Simple comparison-based sorting
+- **Quick Sort**: Efficient divide-and-conquer sorting
+- **Merge Sort**: Stable divide-and-conquer sorting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Searching Algorithms
+- **Linear Search**: Simple sequential search
+- **Binary Search**: Efficient search for sorted arrays
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Graph Algorithms
+- **Breadth-First Search (BFS)**: Level-by-level graph traversal
+- **Depth-First Search (DFS)**: Deep exploration graph traversal
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with Next.js 13 App Router
+- UI components from shadcn/ui
+- Animations powered by Tailwind CSS
+
+## 📞 Support
+
+If you have any questions or run into issues, please open an issue in the GitHub repository.
+
+---
+
+Made with ❤️ by [Your Name]
