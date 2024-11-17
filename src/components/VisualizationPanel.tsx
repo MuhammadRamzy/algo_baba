@@ -25,7 +25,7 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
   const maxValue = Math.max(...step.array)
 
   const renderSortingVisualization = () => (
-    <div className="h-64 flex items-end justify-center space-x-1">
+    <div className="h-full flex items-end justify-center space-x-1">
       {step.array.map((value, index) => {
         const height = (value / maxValue) * 100
         const isComparing = step.comparing.includes(index)
@@ -34,13 +34,17 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
         return (
           <div
             key={index}
-            className="w-8 transition-all duration-300"
-            style={{
-              height: `${height}%`,
-              backgroundColor: isSwapping ? 'rgb(239, 68, 68)' : isComparing ? 'rgb(234, 179, 8)' : 'rgb(59, 130, 246)'
-            }}
+            className="w-8 transition-all duration-300 flex flex-col items-center"
+            style={{ height: '100%' }}
           >
-            <span className="text-xs text-center block pt-1 text-white">{value}</span>
+            <div 
+              className="w-full"
+              style={{
+                height: `${height}%`,
+                backgroundColor: isSwapping ? 'rgb(239, 68, 68)' : isComparing ? 'rgb(234, 179, 8)' : 'rgb(59, 130, 246)'
+              }}
+            />
+            <span className="text-xs text-center block mt-1">{value}</span>
           </div>
         )
       })}
@@ -48,7 +52,7 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
   )
 
   const renderSearchingVisualization = () => (
-    <div className="h-64 flex items-center justify-center space-x-1">
+    <div className="h-full flex items-center justify-center space-x-1">
       {step.array.map((value, index) => {
         const isCurrent = index === step.current
         const isFound = isCurrent && step.found
@@ -56,13 +60,18 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
         return (
           <div
             key={index}
-            className={`w-12 h-12 flex items-center justify-center border-2 ${
-              isFound ? 'border-green-500 bg-green-100' :
-              isCurrent ? 'border-yellow-500 bg-yellow-100' :
-              'border-blue-300 bg-blue-50'
-            }`}
+            className="flex flex-col items-center"
           >
-            {value}
+            <div
+              className={`w-12 h-12 flex items-center justify-center border-2 ${
+                isFound ? 'border-green-500 bg-green-100' :
+                isCurrent ? 'border-yellow-500 bg-yellow-100' :
+                'border-blue-300 bg-blue-50'
+              }`}
+            >
+              {value}
+            </div>
+            <span className="text-xs mt-1">{index}</span>
           </div>
         )
       })}
@@ -70,8 +79,8 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
   )
 
   const renderGraphVisualization = () => (
-    <div className="h-64 flex items-center justify-center">
-      <svg width="300" height="200" viewBox="0 0 300 200">
+    <div className="h-full flex items-center justify-center">
+      <svg width="100%" height="100%" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet">
         {step.array.map((_, index) => {
           const x = 150 + 100 * Math.cos((2 * Math.PI * index) / step.array.length)
           const y = 100 + 80 * Math.sin((2 * Math.PI * index) / step.array.length)
@@ -137,7 +146,7 @@ export default function VisualizationPanel({ steps, currentStep, speed, algorith
   }
 
   return (
-    <div className="w-full h-64 flex items-center justify-center overflow-x-auto">
+    <div className="w-full h-full flex items-center justify-center">
       {renderVisualization()}
     </div>
   )
