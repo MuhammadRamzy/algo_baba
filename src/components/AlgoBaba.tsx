@@ -168,7 +168,7 @@ export default function AlgoBaba() {
     <div className="min-h-screen bg-gray-100 p-4 flex flex-col">
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold text-gray-800">AlgoBaba</h1>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/MuhammadRamzy" target="_blank" rel="noopener noreferrer">
           <Github className="h-6 w-6" />
         </a>
       </header>
