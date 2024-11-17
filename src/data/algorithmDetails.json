@@ -2,72 +2,122 @@
   "bubbleSort": {
     "name": "Bubble Sort",
     "category": "Sorting",
-    "description": "Bubble Sort is a simple sorting algorithm that works by repeatedly stepping through the list of elements, comparing each pair of adjacent elements, and swapping them if they are in the wrong order. This process is repeated until the list is sorted. It gets its name because smaller elements 'bubble' to the top of the list (or the beginning in ascending order) through successive swaps.",
-    "timeComplexity": "O(n²)",
-    "spaceComplexity": "O(1)"
+    "description": "Bubble Sort is a simple sorting algorithm that repeatedly steps through a list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed. Key characteristics:\n- Stable sorting algorithm\n- In-place algorithm\n- Adaptive: becomes faster when list is nearly sorted\n- Best used for educational purposes and small lists\n- Not suitable for large datasets due to quadratic time complexity\n- Easy to implement and understand\n- Good for detecting if a list is already sorted",
+    "timeComplexity": {
+      "best": "O(n)",
+      "average": "O(n²)",
+      "worst": "O(n²)"
+    },
+    "spaceComplexity": "O(1)",
+    "advantages": [
+      "Simple to understand and implement",
+      "Requires no extra memory space",
+      "Stable sorting algorithm",
+      "Adaptive - becomes faster for partially sorted arrays"
+    ],
+    "disadvantages": [
+      "Poor time complexity of O(n²)",
+      "Not suitable for large datasets",
+      "Does not scale well with input size"
+    ],
+    "pseudoCode": "BEGIN\n  DO\n    swapped ← false\n    FOR i FROM 0 TO length(array) - 2\n      IF array[i] > array[i+1] THEN\n        SWAP array[i] WITH array[i+1]\n        swapped ← true\n      END IF\n    END FOR\n  WHILE swapped = true\nEND",
+    "sampleCode": {
+      "Python": "def bubble_sort(arr):\n    n = len(arr)\n    # Optimization: Track if any swaps occurred\n    for i in range(n):\n        swapped = False\n        # Last i elements are already in place\n        for j in range(0, n-i-1):\n            # Compare adjacent elements\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n                swapped = True\n        # If no swapping occurred, array is sorted\n        if not swapped:\n            break\n    return arr",
+      "JavaScript": "function bubbleSort(arr) {\n    const n = arr.length;\n    let swapped;\n    \n    do {\n        swapped = false;\n        // Last i elements are already in place\n        for (let i = 0; i < n - 1; i++) {\n            // Compare adjacent elements\n            if (arr[i] > arr[i + 1]) {\n                // Swap them if they are in wrong order\n                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n                swapped = true;\n            }\n        }\n    } while (swapped);\n    \n    return arr;\n}",
+      "Java": "public class BubbleSort {\n    public static void bubbleSort(int[] arr) {\n        int n = arr.length;\n        boolean swapped;\n        \n        for (int i = 0; i < n - 1; i++) {\n            swapped = false;\n            \n            for (int j = 0; j < n - i - 1; j++) {\n                if (arr[j] > arr[j + 1]) {\n                    // Swap arr[j] and arr[j+1]\n                    int temp = arr[j];\n                    arr[j] = arr[j + 1];\n                    arr[j + 1] = temp;\n                    swapped = true;\n                }\n            }\n            \n            // If no swapping occurred, array is sorted\n            if (!swapped) {\n                break;\n            }\n        }\n    }",
+      "C++": "void bubbleSort(vector<int>& arr) {\n    int n = arr.size();\n    bool swapped;\n    \n    for (int i = 0; i < n - 1; i++) {\n        swapped = false;\n        \n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                swap(arr[j], arr[j + 1]);\n                swapped = true;\n            }\n        }\n        \n        if (!swapped) {\n            break;\n        }\n    }\n}"
+    }
   },
   "quickSort": {
     "name": "Quick Sort",
     "category": "Sorting",
-    "description": "Quick Sort is a highly efficient sorting algorithm based on the divide-and-conquer strategy. It selects a 'pivot' element from the array and partitions the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. These sub-arrays are then recursively sorted. The algorithm is known for its fast average-case performance, though its worst-case performance can degrade to O(n²) if the pivot choices are poor.",
-    "timeComplexity": "O(n log n) average, O(n²) worst case",
-    "spaceComplexity": "O(log n)"
+    "description": "Quick Sort is an efficient, in-place sorting algorithm that uses a divide-and-conquer strategy. Key features:\n- Divides array into smaller subarrays using a pivot element\n- Recursively sorts subarrays\n- Very efficient for large datasets\n- Widely used in practice\n- Can be optimized for different types of data\n- Multiple pivoting strategies available (first, last, random, median-of-three)\n- Performs well with virtual memory systems\n- Usually the best practical choice for sorting",
+    "timeComplexity": {
+      "best": "O(n log n)",
+      "average": "O(n log n)",
+      "worst": "O(n²)"
+    },
+    "spaceComplexity": "O(log n)",
+    "advantages": [
+      "Highly efficient for large datasets",
+      "In-place sorting",
+      "Cache friendly",
+      "Very good average case performance",
+      "Can be easily modified for different types of data"
+    ],
+    "disadvantages": [
+      "Unstable sorting algorithm",
+      "Poor worst-case performance O(n²)",
+      "Not adaptive",
+      "Recursive nature can require significant stack space"
+    ],
+    "pseudoCode": "FUNCTION quickSort(arr, low, high)\n  IF low < high THEN\n    // Partition the array and get pivot index\n    pivotIndex ← partition(arr, low, high)\n    \n    // Recursively sort elements before and after pivot\n    quickSort(arr, low, pivotIndex - 1)\n    quickSort(arr, pivotIndex + 1, high)\n  END IF\nEND FUNCTION\n\nFUNCTION partition(arr, low, high)\n  pivot ← arr[high]\n  i ← low - 1\n  \n  FOR j FROM low TO high - 1\n    IF arr[j] <= pivot THEN\n      i ← i + 1\n      swap(arr[i], arr[j])\n    END IF\n  END FOR\n  \n  swap(arr[i + 1], arr[high])\n  RETURN i + 1\nEND FUNCTION",
+    "sampleCode": {
+      "Python": "def quick_sort(arr, low=None, high=None):\n    if low is None:\n        low = 0\n    if high is None:\n        high = len(arr) - 1\n        \n    def partition(low, high):\n        pivot = arr[high]\n        i = low - 1\n        \n        for j in range(low, high):\n            if arr[j] <= pivot:\n                i += 1\n                arr[i], arr[j] = arr[j], arr[i]\n        \n        arr[i + 1], arr[high] = arr[high], arr[i + 1]\n        return i + 1\n    \n    if low < high:\n        pi = partition(low, high)\n        quick_sort(arr, low, pi - 1)\n        quick_sort(arr, pi + 1, high)\n    \n    return arr",
+      "JavaScript": "function quickSort(arr, low = 0, high = arr.length - 1) {\n    function partition(low, high) {\n        const pivot = arr[high];\n        let i = low - 1;\n        \n        for (let j = low; j < high; j++) {\n            if (arr[j] <= pivot) {\n                i++;\n                [arr[i], arr[j]] = [arr[j], arr[i]];\n            }\n        }\n        \n        [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];\n        return i + 1;\n    }\n    \n    if (low < high) {\n        const pi = partition(low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n    \n    return arr;\n}",
+      "Java": "public class QuickSort {\n    public static void quickSort(int[] arr, int low, int high) {\n        if (low < high) {\n            int pi = partition(arr, low, high);\n            quickSort(arr, low, pi - 1);\n            quickSort(arr, pi + 1, high);\n        }\n    }\n    \n    private static int partition(int[] arr, int low, int high) {\n        int pivot = arr[high];\n        int i = low - 1;\n        \n        for (int j = low; j < high; j++) {\n            if (arr[j] <= pivot) {\n                i++;\n                int temp = arr[i];\n                arr[i] = arr[j];\n                arr[j] = temp;\n            }\n        }\n        \n        int temp = arr[i + 1];\n        arr[i + 1] = arr[high];\n        arr[high] = temp;\n        \n        return i + 1;\n    }\n}",
+      "C++": "void quickSort(vector<int>& arr, int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n\nint partition(vector<int>& arr, int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n    \n    for (int j = low; j < high; j++) {\n        if (arr[j] <= pivot) {\n            i++;\n            swap(arr[i], arr[j]);\n        }\n    }\n    \n    swap(arr[i + 1], arr[high]);\n    return i + 1;\n}"
+    }
   },
   "mergeSort": {
     "name": "Merge Sort",
     "category": "Sorting",
-    "description": "Merge Sort is a stable, efficient, divide-and-conquer sorting algorithm. It works by splitting an unsorted list into n sublists, each containing one element, as single-element lists are inherently sorted. These sublists are then repeatedly merged to produce sorted sublists until a single sorted list remains. Merge Sort is widely used for its predictable performance and stability.",
-    "timeComplexity": "O(n log n)",
-    "spaceComplexity": "O(n)"
+    "description": "Merge Sort is a highly efficient, stable sorting algorithm that uses the divide-and-conquer strategy. Key features:\n- Divides the array into two halves, recursively sorts them, and merges them\n- Guaranteed O(n log n) performance\n- Stable sorting algorithm\n- Predictable performance regardless of input data\n- Parallel processing capable\n- External sorting friendly\n- Widely used in practice, especially when stability is required\n- Perfect for sorting linked lists",
+    "timeComplexity": {
+      "best": "O(n log n)",
+      "average": "O(n log n)",
+      "worst": "O(n log n)"
+    },
+    "spaceComplexity": "O(n)",
+    "advantages": [
+      "Stable sorting algorithm",
+      "Guaranteed O(n log n) performance",
+      "Suitable for parallel processing",
+      "Works well with linked lists",
+      "External sorting friendly"
+    ],
+    "disadvantages": [
+      "Requires O(n) extra space",
+      "Not in-place",
+      "Not adaptive",
+      "Overkill for small arrays"
+    ],
+    "pseudoCode": "FUNCTION mergeSort(arr)\n  IF length(arr) <= 1 THEN\n    RETURN arr\n  END IF\n\n  mid ← length(arr) / 2\n  left ← arr[0:mid]\n  right ← arr[mid:]\n\n  mergeSort(left)\n  mergeSort(right)\n  merge(arr, left, right)\n\nFUNCTION merge(arr, left, right)\n  i ← 0; j ← 0; k ← 0\n\n  WHILE i < length(left) AND j < length(right)\n    IF left[i] <= right[j] THEN\n      arr[k] ← left[i]\n      i ← i + 1\n    ELSE\n      arr[k] ← right[j]\n      j ← j + 1\n    END IF\n    k ← k + 1\n  END WHILE\n\n  // Copy remaining elements\n  WHILE i < length(left)\n    arr[k] ← left[i]\n    i ← i + 1\n    k ← k + 1\n  END WHILE\n\n  WHILE j < length(right)\n    arr[k] ← right[j]\n    j ← j + 1\n    k ← k + 1\n  END WHILE",
+    "sampleCode": {
+      "Python": "def merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n\n    mid = len(arr) // 2\n    left = arr[:mid]\n    right = arr[mid:]\n\n    # Recursively sort both halves\n    merge_sort(left)\n    merge_sort(right)\n\n    # Initialize pointers for merging\n    i = j = k = 0\n\n    # Merge the sorted halves\n    while i < len(left) and j < len(right):\n        if left[i] <= right[j]:\n            arr[k] = left[i]\n            i += 1\n        else:\n            arr[k] = right[j]\n            j += 1\n        k += 1\n\n    # Copy remaining elements\n    while i < len(left):\n        arr[k] = left[i]\n        i += 1\n        k += 1\n\n    while j < len(right):\n        arr[k] = right[j]\n        j += 1\n        k += 1\n\n    return arr",
+      "JavaScript": "function mergeSort(arr) {\n    if (arr.length <= 1) return arr;\n\n    const mid = Math.floor(arr.length / 2);\n    const left = arr.slice(0, mid);\n    const right = arr.slice(mid);\n\n    mergeSort(left);\n    mergeSort(right);\n\n    return merge(arr, left, right);\n}\n\nfunction merge(arr, left, right) {\n    let i = 0, j = 0, k = 0;\n\n    while (i < left.length && j < right.length) {\n        if (left[i] <= right[j]) {\n            arr[k] = left[i];\n            i++;\n        } else {\n            arr[k] = right[j];\n            j++;\n        }\n        k++;\n    }\n\n    // Copy remaining elements\n    while (i < left.length) {\n        arr[k] = left[i];\n        i++;\n        k++;\n    }\n\n    while (j < right.length) {\n        arr[k] = right[j];\n        j++;\n        k++;\n    }\n\n    return arr;\n}",
+      "Java": "public class MergeSort {\n    public static void mergeSort(int[] arr) {\n        if (arr.length <= 1) return;\n\n        int mid = arr.length / 2;\n        int[] left = Arrays.copyOfRange(arr, 0, mid);\n        int[] right = Arrays.copyOfRange(arr, mid, arr.length);\n\n        mergeSort(left);\n        mergeSort(right);\n\n        merge(arr, left, right);\n    }\n\n    private static void merge(int[] arr, int[] left, int[] right) {\n        int i = 0, j = 0, k = 0;\n\n        while (i < left.length && j < right.length) {\n            if (left[i] <= right[j]) {\n                arr[k++] = left[i++];\n            } else {\n                arr[k++] = right[j++];\n            }\n        }\n\n        while (i < left.length) {\n            arr[k++] = left[i++];\n        }\n\n        while (j < right.length) {\n            arr[k++] = right[j++];\n        }\n    }\n}",
+      "C++": "void mergeSort(vector<int>& arr) {\n    if (arr.size() <= 1) return;\n\n    int mid = arr.size() / 2;\n    vector<int> left(arr.begin(), arr.begin() + mid);\n    vector<int> right(arr.begin() + mid, arr.end());\n\n    mergeSort(left);\n    mergeSort(right);\n\n    merge(arr, left, right);\n}\n\nvoid merge(vector<int>& arr, vector<int>& left, vector<int>& right) {\n    int i = 0, j = 0, k = 0;\n\n    while (i < left.size() && j < right.size()) {\n        if (left[i] <= right[j]) {\n            arr[k++] = left[i++];\n        } else {\n            arr[k++] = right[j++];\n        }\n    }\n\n    while (i < left.size()) {\n        arr[k++] = left[i++];\n    }\n\n    while (j < right.size()) {\n        arr[k++] = right[j++];\n    }\n}"
+    }
   },
   "linearSearch": {
     "name": "Linear Search",
     "category": "Searching",
-    "description": "Linear Search is the simplest searching algorithm. It works by iterating through each element of the list sequentially, comparing it with the target element until a match is found or the end of the list is reached. While easy to implement, its performance is suboptimal for large lists due to its O(n) time complexity.",
-    "timeComplexity": "O(n)",
-    "spaceComplexity": "O(1)"
-  },
-  "binarySearch": {
-    "name": "Binary Search",
-    "category": "Searching",
-    "description": "Binary Search is a highly efficient search algorithm used on sorted arrays. The algorithm works by repeatedly dividing the search interval in half. It compares the target value with the middle element of the array; if they are not equal, it eliminates half of the array from consideration. The process continues until the target is found or the interval is empty.",
-    "timeComplexity": "O(log n)",
-    "spaceComplexity": "O(1)"
-  },
-  "bfs": {
-    "name": "Breadth-First Search",
-    "category": "Graph",
-    "description": "Breadth-First Search (BFS) is a graph traversal algorithm that starts at a specified node (often called the source) and explores all its neighboring nodes at the current depth level before moving to nodes at the next depth level. BFS uses a queue to keep track of nodes to visit and is widely used for finding the shortest path in unweighted graphs.",
-    "timeComplexity": "O(V + E) where V is the number of vertices and E is the number of edges",
-    "spaceComplexity": "O(V)"
-  },
-  "dfs": {
-    "name": "Depth-First Search",
-    "category": "Graph",
-    "description": "Depth-First Search (DFS) is a graph traversal algorithm that explores as far down a branch as possible before backtracking to explore other branches. It uses a stack, either explicitly or through recursion, to keep track of nodes to visit. DFS is often used for topological sorting, detecting cycles, and pathfinding.",
-    "timeComplexity": "O(V + E) where V is the number of vertices and E is the number of edges",
-    "spaceComplexity": "O(V)"
-  },
-  "prims": {
-    "name": "Prim's Algorithm",
-    "category": "Graph",
-    "description": "Prim's algorithm is a greedy algorithm for finding a minimum spanning tree (MST) of a weighted undirected graph. Starting from an arbitrary node, it grows the MST by adding the smallest edge that connects a node in the tree to a node outside the tree. It ensures that the resulting tree includes all vertices with the minimum total edge weight.",
-    "timeComplexity": "O(E log V) with binary heap",
-    "spaceComplexity": "O(V)"
-  },
-  "kruskal": {
-    "name": "Kruskal's Algorithm",
-    "category": "Graph",
-    "description": "Kruskal's algorithm is a greedy algorithm for constructing the minimum spanning tree (MST) of a weighted, undirected graph. It sorts all the edges by weight and adds them to the MST one by one, ensuring no cycles are formed. The algorithm stops when all vertices are connected.",
-    "timeComplexity": "O(E log E) or O(E log V)",
-    "spaceComplexity": "O(V)"
-  },
-  "dijkstra": {
-    "name": "Dijkstra's Algorithm",
-    "category": "Graph",
-    "description": "Dijkstra's algorithm is used to find the shortest path from a source node to all other nodes in a weighted graph. It iteratively picks the vertex with the smallest distance, updates its neighbors' distances, and marks the vertex as visited. It is particularly useful for graphs with non-negative weights.",
-    "timeComplexity": "O((V + E) log V) with binary heap",
-    "spaceComplexity": "O(V)"
+    "description": "Linear Search is the simplest searching algorithm that finds a target value by checking each element sequentially. Key features:\n- Sequential access of elements\n- Works on both sorted and unsorted arrays\n- Best for small arrays or lists\n- No preprocessing required\n- Can search for multiple occurrences\n- Useful when random access is expensive (linked lists)\n- Can be modified to find minimum/maximum values\n- Suitable when elements are equally likely to be searched",
+    "timeComplexity": {
+      "best": "O(1)",
+      "average": "O(n)",
+      "worst": "O(n)"
+    },
+    "spaceComplexity": "O(1)",
+    "advantages": [
+      "Simple to implement",
+      "Works on unsorted arrays",
+      "No preprocessing required",
+      "Works with any data type",
+      "Good for small datasets"
+    ],
+    "disadvantages": [
+      "Slow for large datasets",
+      "Not efficient for sorted arrays",
+      "Time complexity increases linearly with size"
+    ],
+    "pseudoCode": "FUNCTION linearSearch(arr, target)\n  FOR i FROM 0 TO length(arr) - 1\n    IF arr[i] equals target THEN\n      RETURN i\n    END IF\n  END FOR\n  RETURN -1  // Element not found\nEND FUNCTION",
+    "sampleCode": {
+      "Python": "def linear_search(arr, target):\n    # Search through array sequentially\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i  # Return index if element found\n    return -1  # Return -1 if element not found\n\n# Enhanced version that can find all occurrences\ndef linear_search_all(arr, target):\n    indices = []\n    for i in range(len(arr)):\n        if arr[i] == target:\n            indices.append(i)\n    return indices if indices else -1",
+      "JavaScript": "function linearSearch(arr, target) {\n    // Search through array sequentially\n    for (let i = 0; i < arr.length; i++) {\n        if (arr[i] === target) {\n            return i;  // Return index if element found\n        }\n    }\n    return -1;  // Return -1 if element not found\n}\n\n// Enhanced version with early termination for sorted arrays\nfunction linearSearchSorted(arr, target) {\n    for (let i = 0; i < arr.length; i++) {\n        if (arr[i] === target) return i;\n        if (arr[i] > target) return -1;  // Early termination\n    }\n    return -1;\n}",
+      "Java": "public class LinearSearch {\n    public static int linearSearch(int[] arr, int target) {\n        // Search through array sequentially\n        for (int i = 0; i < arr.length; i++) {\n            if (arr[i] == target) {\n                return i;  // Return index if element found\n            }\n        }\n        return -1;  // Return -1 if element not found\n    }\n\n    // Generic version for any data type\n    public static <T> int linearSearch(T[] arr, T target) {\n        for (int i = 0; i < arr.length; i++) {\n            if (arr[i].equals(target)) {\n                return i;\n            }\n        }\n        return -1;\n    }\n}",
+      "C++": "// Basic linear search\nint linearSearch(vector<int>& arr, int target) {\n    for (int i = 0; i < arr.size(); i++) {\n        if (arr[i] == target) {\n            return i;\n        }\n    }\n    return -1;\n}\n\n// Template version for any data type\ntemplate<typename T>\nint linearSearch(vector<T>& arr, T target) {\n    for (int i = 0; i < arr.size(); i++) {\n        if (arr[i] == target) {\n            return i;\n        }\n    }\n    return -1;\n}"
+    }
   }
 }
-
